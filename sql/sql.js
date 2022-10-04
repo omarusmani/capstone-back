@@ -8,7 +8,7 @@ const {
     DB_USER,
     DB_PASSWORD,
     DB_DATABASE,
-    // DB_PORT
+    DB_PORT
 } = process.env
 
 console.log(process.env.DB_HOST)
