@@ -1,0 +1,10 @@
+const express = require('express')
+const router = express.Router()
+const postController = require('../controllers/postcontroller')
+
+router.get('/', postController.list)
+router.get('/:username', postController.show)
+router.post('/', postController.create)
+router.delete('/:id', postController.remove)//no update posts or getting all posts 
+
+module.exports = router
