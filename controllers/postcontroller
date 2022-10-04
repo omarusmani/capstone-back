@@ -25,33 +25,15 @@ const list = (req, res) => {
     );
   };
   
-  const showTradesByCustomer = (req, res) => {
-    pool.query(
-      `SELECT 
-        customers.id, 
-        customers.first_name, 
-        trades.title 
-      FROM trades 
-        JOIN customers 
-        WHERE trades.user_id = ${req.params.id} 
-        AND
-        customers.id = ${req.params.id}`,
-      (err, row) => {
-        if (err) {
-          console.log({ message: "Error occurred: " + err });
-          return res.status(500).send("An unexpected error occurred");
-        }
-        res.json(row);
-      }
-    );
-  };
-  
+
   const create = (req, res) => {
-    const { first_name, last_name, email } = req.body;
-  
+    const { url, username, post,title} = req.body;
+    // console.log(req.body+url)
+      const d = new Date().toISOString().split('T')[0];
+      console.log(d)
     pool.query(
-      `INSERT INTO POSTS (first_name, last_name, email) 
-        VALUES ("${first_name}","${last_name}", "${email}")`,
+      `INSERT INTO POSTS ( username,post, url,Title,days) 
+        VALUES ("${username}", "${post}","${url}","${title}","${d}")`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });

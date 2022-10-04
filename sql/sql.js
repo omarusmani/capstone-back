@@ -8,7 +8,7 @@ const {
     DB_USER,
     DB_PASSWORD,
     DB_DATABASE,
-    DB_PORT
+    // DB_PORT
 } = process.env
 
 console.log(process.env.DB_HOST)
@@ -23,7 +23,7 @@ class Connection {
         user: DB_USER,
         password: DB_PASSWORD,
         database: DB_DATABASE,
-        // port: DB_PORT,
+        port: DB_PORT,
       });
 
       return this.pool;
