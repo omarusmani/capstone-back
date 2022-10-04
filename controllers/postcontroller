@@ -7,7 +7,7 @@ const list = (req, res) => {
       console.log({ message: "Error occurred: " + err });
       return res.status(500).send("An unexpected error occurred");
     }
-    console.log(rows)
+    // console.log(rows)
     res.json(rows);
   });
 };

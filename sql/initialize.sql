@@ -5,7 +5,7 @@ create table POSTS (
 	username INT,
 	post TEXT,
 	url VARCHAR(100),
-	Title VARCHAR(100),POSTSPOSTS
+	Title VARCHAR(100),
 	Days DATE,
     primary key(id)
 );

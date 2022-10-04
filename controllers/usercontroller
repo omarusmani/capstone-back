@@ -4,7 +4,7 @@ const pool = require('../sql/sql')
   
   const show = (req, res) => {
     pool.query(
-      `SELECT * FROM USERS WHERE id = ${req.params.id}`,
+      `SELECT * FROM USERS WHERE id = ${req.params.username}`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
