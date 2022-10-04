@@ -14,7 +14,7 @@ const list = (req, res) => {
 
   const show = (req, res) => {
     pool.query(
-      `SELECT * FROM USERS WHERE username = ${req.params.username}`,
+      `SELECT * FROM USERS WHERE username = "${req.params.username}"`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
