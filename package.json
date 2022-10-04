@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "build" :"node webpack"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
