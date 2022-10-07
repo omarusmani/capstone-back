@@ -1,63 +1,63 @@
-const mysql = require('mysql')
-const pool = require('../sql/sql')
+// const mysql = require('mysql')
+// const pool = require('../sql/sql')
 
-const list = (req, res) => {
-    pool.query("SELECT * FROM USERS", (err, rows) => {
-      if (err) {
-        console.log({ message: "Error occurred: " + err });
-        return res.status(500).send("An unexpected error occurred");
-      }
-      // console.log(rows)
-      res.json(rows);
-    });
-  }; 
+// const list = (req, res) => {
+//     pool.query("SELECT * FROM USERS", (err, rows) => {
+//       if (err) {
+//         console.log({ message: "Error occurred: " + err });
+//         return res.status(500).send("An unexpected error occurred");
+//       }
+//       // console.log(rows)
+//       res.json(rows);
+//     });
+//   }; 
 
-  const show = (req, res) => {
-    pool.query(
-      `SELECT * FROM USERS WHERE username = "${req.params.username}"`,
-      (err, row) => {
-        if (err) {
-          console.log({ message: "Error occurred: " + err });
-          return res.status(500).send("An unexpected error occurred");
-        }
-        res.json(row);
-      }
-    );
-  };
+//   const show = (req, res) => {
+//     pool.query(
+//       `SELECT * FROM USERS WHERE username = "${req.params.username}"`,
+//       (err, row) => {
+//         if (err) {
+//           console.log({ message: "Error occurred: " + err });
+//           return res.status(500).send("An unexpected error occurred");
+//         }
+//         res.json(row);
+//       }
+//     );
+//   };
   
-  const create = (req, res) => {
-    const { first_name, last_name, email, username } = req.body;
+//   const create = (req, res) => {
+//     const { first_name, last_name, email, username } = req.body;
   
-    pool.query(
-      `INSERT INTO USERS (first_name, last_name, email, username) 
-        VALUES ("${first_name}","${last_name}", "${email}","${username}")`,
-      (err, row) => {
-        if (err) {
-          console.log({ message: "Error occurred: " + err });
-          return res.status(500).send("An unexpected error occurred");
-        }
-        res.json(row);
-      }
-    );
-  };
+//     pool.query(
+//       `INSERT INTO USERS (first_name, last_name, email, username) 
+//         VALUES ("${first_name}","${last_name}", "${email}","${username}")`,
+//       (err, row) => {
+//         if (err) {
+//           console.log({ message: "Error occurred: " + err });
+//           return res.status(500).send("An unexpected error occurred");
+//         }
+//         res.json(row);
+//       }
+//     );
+//   };
 
   
-  const remove = (req, res) => {
-    pool.query(
-      `DELETE FROM USERS WHERE id = ${req.params.username}`,
-      (err, row) => {
-        if (err) {
-          console.log({ message: "Error occurred: " + err });
-          return res.status(500).send("An unexpected error occurred");
-        }
-        res.json(row);
-      }
-    );
-  };
+//   const remove = (req, res) => {
+//     pool.query(
+//       `DELETE FROM USERS WHERE id = ${req.params.username}`,
+//       (err, row) => {
+//         if (err) {
+//           console.log({ message: "Error occurred: " + err });
+//           return res.status(500).send("An unexpected error occurred");
+//         }
+//         res.json(row);
+//       }
+//     );
+//   };
   
-  module.exports = {
-    list,
-    show,
-    create,
-    remove,
-  };
+//   module.exports = {
+//     list,
+//     show,
+//     create,
+//     remove,
+//   };

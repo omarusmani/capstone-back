@@ -3,6 +3,11 @@ const router = express.Router()
 const loginController = require('../controllers/login')
 
 router.get('/', loginController.login);
-router.post('/signup',loginController.create)
+router.get('/post', loginController.sPost);
+router.post('/',loginController.create)
+router.post('/post',loginController.cPost)
+router.delete('/',loginController.removeUser)
+router.delete('/post',loginController.removePost)
+
 
 module.exports = router
