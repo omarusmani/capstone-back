@@ -47,7 +47,7 @@ const list = (req, res) => {
   
   const remove = (req, res) => {
     pool.query(
-      `DELETE FROM POSTS WHERE id = ${req.params.username}`,
+      `DELETE FROM POSTS WHERE id = ${req.params.id}`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
@@ -57,7 +57,7 @@ const list = (req, res) => {
       }
     );
   };
-  
+
   module.exports = {
     list,
     show,

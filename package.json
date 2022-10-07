@@ -11,12 +11,13 @@
     "prettier": "^2.7.1",
     "run": "^1.4.0",
     "sql": "^0.78.0",
+    "ssl": "^1.0.0",
     "webpack": "^5.74.0"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build" :"node webpack"
+    "build": "node webpack"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

@@ -1,0 +1,21 @@
+const mysql = require('mysql')
+const pool = require('../sql/sql')
+
+const login = (req, res) => {
+    let x=req.headers
+    console.log(x)
+    pool.query(
+        `SELECT username,password from USERS where username="${req.headers.username}" and password="${req.headers.password}"`,
+        (err, row) => {
+          if (err) {
+            console.log({ message: "Error occurred: " + err });
+            return res.status(500).send("An unexpected error occurred");
+          }
+          res.status(200).send("You are Authorized");
+        }
+      );
+};
+
+module.exports = {
+    login,
+  };
