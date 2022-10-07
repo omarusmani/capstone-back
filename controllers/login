@@ -3,7 +3,6 @@ const pool = require('../sql/sql')
 
 const login = (req, res) => {
     let x=req.headers
-    console.log(x)
     pool.query(
         `SELECT username,password from USERS where username="${req.headers.username}" and password="${req.headers.password}"`,
         (err, row) => {
@@ -16,6 +15,23 @@ const login = (req, res) => {
       );
 };
 
+const create = (req, res) => {
+    const { first_name, last_name, email, username,password } = req.body;
+  
+    pool.query(
+      `INSERT INTO USERS (first_name, last_name, email, username,password) 
+        VALUES ("${first_name}","${last_name}", "${email}","${username}","${password}")`,
+      (err, row) => {
+        if (err) {
+          console.log({ message: "Error occurred: " + err });
+          return res.status(500).send("An unexpected error occurred");
+        }
+        res.json(row);
+      }
+    );
+  };
+
 module.exports = {
     login,
+    create
   };
