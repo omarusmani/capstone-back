@@ -361,13 +361,14 @@ create table USERS (
 	last_name VARCHAR(50),
 	email VARCHAR(50),
 	username VARCHAR(50),
+	password VARCHAR(50)
     primary key(id)
 );
-insert into USERS (id, first_name, last_name, email, username) values (1, 'Manon', 'Lightfoot', 'mlightfoot0@wikispaces.com', 'mlightfoot0');
-insert into USERS (id, first_name, last_name, email, username) values (2, 'Anastasie', 'Hovington', 'ahovington1@parallels.com', 'ahovington1');
-insert into USERS (id, first_name, last_name, email, username) values (3, 'Mitzi', 'Shallow', 'mshallow2@merriam-webster.com', 'mshallow2');
-insert into USERS (id, first_name, last_name, email, username) values (4, 'Ursala', 'Albasiny', 'ualbasiny3@mapquest.com', 'ualbasiny3');
-insert into USERS (id, first_name, last_name, email, username) values (5, 'Jethro', 'Sackett', 'jsackett4@blogtalkradio.com', 'jsackett4');
-insert into USERS (id, first_name, last_name, email, username) values (6, 'Melisenda', 'Blasio', 'mblasio5@phoca.cz', 'mblasio5');
-insert into USERS (id, first_name, last_name, email, username) values (7, 'Junette', 'Gosby', 'jgosby6@miibeian.gov.cn', 'jgosby6');
-insert into USERS (id, first_name, last_name, email, username) values (8, 'Corette', 'Dredge', 'cdredge7@jiathis.com', 'cdredge7');
+insert into USERS (id, first_name, last_name, email, username) values (1, 'Manon', 'Lightfoot', 'mlightfoot0@wikispaces.com', 'mlightfoot0',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (2, 'Anastasie', 'Hovington', 'ahovington1@parallels.com', 'ahovington1',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (3, 'Mitzi', 'Shallow', 'mshallow2@merriam-webster.com', 'mshallow2',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (4, 'Ursala', 'Albasiny', 'ualbasiny3@mapquest.com', 'ualbasiny3',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (5, 'Jethro', 'Sackett', 'jsackett4@blogtalkradio.com', 'jsackett4',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (6, 'Melisenda', 'Blasio', 'mblasio5@phoca.cz', 'mblasio5',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (7, 'Junette', 'Gosby', 'jgosby6@miibeian.gov.cn', 'jgosby6',"admin");
+insert into USERS (id, first_name, last_name, email, username) values (8, 'Corette', 'Dredge', 'cdredge7@jiathis.com', 'cdredge7',"admin");

@@ -3,9 +3,9 @@ const mysql = require('mysql')
 const pool = require('../sql/sql')
 
 const login = (req, res) => {
-    console.log(req.params, req.headers)
+    // console.log(req.params, req.headers)
     pool.query(
-        `SELECT username,password,first_name,last_name,id from USERS where username="${req.params.username}" and password="${req.params.password}"`,
+        `SELECT username,password,first_name,last_name,id,email from USERS where username="${req.query.username}" and password="${req.query.password}"`,
         (err, row) => {
           if (err) {
             console.log({ message: "Error occurred: " + err });
@@ -20,7 +20,7 @@ const login = (req, res) => {
 };
 
 const create = (req, res) => {
-    console.log(req.query)
+    // console.log(req.query)
 
     const { first_name, last_name, email, username,password } = req.body;
   
@@ -37,9 +37,9 @@ const create = (req, res) => {
     );
   };
   const sPost= (req, res) => {
-    console.log(req.query)
+    // console.log(req.query,req.params)
     pool.query(
-      `SELECT * FROM POSTS WHERE username = "${req.params.username}"`,
+      `SELECT * FROM POSTS WHERE username = "${req.query.username}"`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
@@ -51,12 +51,15 @@ const create = (req, res) => {
   };
 
   const cPost = (req, res) => {
-    console.log(req.query)
+    console.log(req.body)
+    let x=req.body
+    console.log(x.title)
 
     const { url, username, post,title} = req.body;
+    console.log(url,username,post,title)
     // console.log(req.body+url)
       const d = new Date().toISOString().split('T')[0];
-      console.log(d)
+      // console.log(d)
     pool.query(
       `INSERT INTO POSTS ( username,post, url,Title,days) 
         VALUES ("${username}", "${post}","${url}","${title}","${d}")`,
@@ -64,16 +67,14 @@ const create = (req, res) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
           return res.status(500).send("An unexpected error occurred");
-        }if(row.length===0){
-            res.send(401)//added login
-        }
-        else res.json(row)
+        } res.json(row)
       }
     );
   };
   const removePost = (req, res) => {
+    // console.log(req.query.id)rs
     pool.query(
-      `DELETE FROM POSTS WHERE id = ${req.params.id}`,
+      `DELETE FROM POSTS WHERE id = "${req.query.id}"`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
@@ -86,8 +87,10 @@ const create = (req, res) => {
   const removeUser = (req, res) => {
     console.log(req.query)
     pool.query(
-      `DELETE FROM USERS WHERE id = "${req.params.username}"`,
-      `DELETE FROM POSTS WHERE id = "${req.params.username}"`,
+      `DELETE USERS, POSTS
+      FROM USERS
+      INNER JOIN POSTS ON USERS.id = POSTS.username
+      WHERE USERS.id = "${req.query.id}"`,
       (err, row) => {
         if (err) {
           console.log({ message: "Error occurred: " + err });
