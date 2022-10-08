@@ -51,12 +51,12 @@ const create = (req, res) => {
   };
 
   const cPost = (req, res) => {
-    console.log(req.body)
-    let x=req.body
-    console.log(x.title)
+    // console.log(req.body)
+    // let x=req.body
+    // console.log(x.title)
 
     const { url, username, post,title} = req.body;
-    console.log(url,username,post,title)
+    // console.log(url,username,post,title)
     // console.log(req.body+url)
       const d = new Date().toISOString().split('T')[0];
       // console.log(d)
